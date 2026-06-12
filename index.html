@@ -3,7 +3,274 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>JS Assignment (Ch 26-30)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      .question-card {
+        background: #fafafa;
+        border-left: 5px solid #3498db;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+      p {
+        font-style: italic;
+        color: #666;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      .output-box {
+        margin-top: 15px;
+        padding: 12px;
+        background: #eef2f5;
+        border-radius: 4px;
+        font-family: monospace;
+        white-space: pre-line;
+        display: none;
+        border: 1px solid #dcdde1;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1>JavaScript Assignment (Chapters 26-30)</h1>
+
+      <div class="question-card">
+        <h3>
+          Q1. Write a program that takes a positive integer from user & display
+          the following in your browser: a. number, b. round off value, c. floor
+          value, d. ceil value.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var positiveNumber = parseFloat(prompt("Enter a positive floating-point number:"));
+if (positiveNumber > 0) {
+  var result = "number: " + positiveNumber + 
+               "\nround off value: " + Math.round(positiveNumber) + 
+               "\nfloor value: " + Math.floor(positiveNumber) + 
+               "\nceil value: " + Math.ceil(positiveNumber);
+  displayOutput("output1", result);
+}</pre
+        >
+        <button onclick="runQ1()">Run Code</button>
+        <div id="output1" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>
+          Q2. Write a program that takes a negative floating point number from
+          user & display the following in your browser: a. number, b. round off
+          value, c. floor value, d. ceil value.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var negativeNumber = parseFloat(prompt("Enter a negative floating-point number:"));
+if (negativeNumber < 0) {
+  var result = "number: " + negativeNumber + 
+               "\nround off value: " + Math.round(negativeNumber) + 
+               "\nfloor value: " + Math.floor(negativeNumber) + 
+               "\nceil value: " + Math.ceil(negativeNumber);
+  displayOutput("output2", result);
+}</pre
+        >
+        <button onclick="runQ2()">Run Code</button>
+        <div id="output2" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>
+          Q3. Write a program that displays the absolute value of a number. E.g.
+          absolute value of -4 is 4 & absolute value of 5 is 5.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var num = parseFloat(prompt("Enter any number to get its absolute value:"));
+var absoluteValue = Math.abs(num);
+var result = "The absolute value of " + num + " is " + absoluteValue;
+displayOutput("output3", result);</pre
+        >
+        <button onclick="runQ3()">Run Code</button>
+        <div id="output3" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>
+          Q4. Write a program that simulates a dice using random() method of JS
+          Math class. Display the value of dice in your browser.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var diceValue = Math.floor(Math.random() * 6) + 1;
+var result = "random dice value: " + diceValue;
+displayOutput("output4", result);</pre
+        >
+        <button onclick="runQ4()">Run Code</button>
+        <div id="output4" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>
+          Q5. Write a program that simulates a coin toss using random() method
+          of JS Math class. Display the value of coin in your browser.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var toss = Math.floor(Math.random() * 2) + 1;
+var coinValue = "";
+if (toss === 2) {
+  coinValue = "Heads";
+} else {
+  coinValue = "Tails";
+}
+var result = "random coin value: " + coinValue;
+displayOutput("output5", result);</pre
+        >
+        <button onclick="runQ5()">Run Code</button>
+        <div id="output5" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>
+          Q6. Write a program that shows a random number between 1 and 100 in
+          your browser.
+        </h3>
+        <h4>CODE:</h4>
+        <pre>
+var randomNumber = Math.floor(Math.random() * 100) + 1;
+var result = "random number between 1 and 100: " + randomNumber;
+displayOutput("output6", result);</pre
+        >
+        <button onclick="runQ6()">Run Code</button>
+        <div id="output6" class="output-box"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>Helper function to show output on screen</h3>
+        <h4>CODE:</h4>
+        <pre>
+function displayOutput(id, text) {
+  var element = document.getElementById(id);
+  element.style.display = "block";
+  element.innerText = text;
+}</pre
+        >
+      </div>
+    </div>
+
+    <script>
+      function displayOutput(id, text) {
+        var element = document.getElementById(id);
+        element.style.display = "block";
+        element.innerText = text;
+      }
+
+      function runQ1() {
+        var positiveNumber = parseFloat(
+          prompt("Enter a positive floating-point number (e.g., 3.45214):"),
+        );
+        if (!isNaN(positiveNumber) && positiveNumber > 0) {
+          var result =
+            "number: " +
+            positiveNumber +
+            "\nround off value: " +
+            Math.round(positiveNumber) +
+            "\nfloor value: " +
+            Math.floor(positiveNumber) +
+            "\nceil value: " +
+            Math.ceil(positiveNumber);
+          displayOutput("output1", result);
+        } else if (positiveNumber <= 0) {
+          alert("Please enter a positive number!");
+        }
+      }
+
+      function runQ2() {
+        var negativeNumber = parseFloat(
+          prompt("Enter a negative floating-point number (e.g., -2.673):"),
+        );
+        if (!isNaN(negativeNumber) && negativeNumber < 0) {
+          var result =
+            "number: " +
+            negativeNumber +
+            "\nround off value: " +
+            Math.round(negativeNumber) +
+            "\nfloor value: " +
+            Math.floor(negativeNumber) +
+            "\nceil value: " +
+            Math.ceil(negativeNumber);
+          displayOutput("output2", result);
+        } else if (negativeNumber >= 0) {
+          alert("Please enter a negative number!");
+        }
+      }
+
+      function runQ3() {
+        var userInput = prompt("Enter any number to get its absolute value:");
+        var num = parseFloat(userInput);
+        if (!isNaN(num)) {
+          var absoluteValue = Math.abs(num);
+          var result = "The absolute value of " + num + " is " + absoluteValue;
+          displayOutput("output3", result);
+        }
+      }
+
+      function runQ4() {
+        var diceValue = Math.floor(Math.random() * 6) + 1;
+        var result = "random dice value: " + diceValue;
+        displayOutput("output4", result);
+      }
+
+      function runQ5() {
+        var toss = Math.floor(Math.random() * 2) + 1;
+        var coinValue = "";
+        if (toss === 2) {
+          coinValue = "Heads";
+        } else {
+          coinValue = "Tails";
+        }
+        var result = "random coin value: " + coinValue;
+        displayOutput("output5", result);
+      }
+
+      function runQ6() {
+        var randomNumber = Math.floor(Math.random() * 100) + 1;
+        var result = "random number between 1 and 100: " + randomNumber;
+        displayOutput("output6", result);
+      }
+    </script>
+  </body>
 </html>
